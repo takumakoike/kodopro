@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import myImage from "../images/kodo-pro__logo.png";
+//microCMS呼び出し
+import { getBlogs } from "../library/microcms";
+const response = await getBlogs({ fields: ["id", "title"] });
 ---
 
 <Layout title="Welcome to Astro.">
@@ -20,6 +23,13 @@ import myImage from "../images/kodo-pro__logo.png";
 		</header>
 		<section class="mt-10">
 			<h2 class="text-center bg-white p-3">こどもたちが楽しく学べる<br class="md:hidden">プログラミング教室</h2>
+			<ul>
+				{response.contents.map((content: any) => (
+					<li>
+						<a href={content.id}>{content.title}</a>
+					</li>
+				))}
+			</ul>
 		</section>
 	</main>
 </Layout>
