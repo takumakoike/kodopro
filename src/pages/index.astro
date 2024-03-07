@@ -6,9 +6,21 @@ import myImage from "../images/kodo-pro__logo.png";
 
 <Layout title="Welcome to Astro.">
 	<main class="container mx-auto">
-		<h1 class="md:text-4xl text-center text-green-700 font-bold">
-			<Image src={myImage} alt="コドモプログラミング"/>
-		</h1>
+		<header class="container mx-auto">
+			<h1 class="md:text-4xl text-center text-green-700 font-bold">
+				<Image src={myImage} alt="コドモプログラミング"/>
+			</h1>
+			<nav class="mt-5">
+				<ul class="flex gap-3 justify-center font-bold">
+					<li class="flex"><a href="" class="p-2 px-6 rounded-3xl bg-white border border-gray-400 hover:bg-blue-400">活動記録</a></li>
+					<li class="flex "><a href="" class="p-2 px-6 rounded-3xl bg-white border border-gray-400 hover:bg-blue-400">決済</a></li>
+					<!-- <li class="flex bg-white"><a href="" class="p-2 px-6 rounded-3xl bg-white hover:text-blue-400"></a></li> -->
+				</ul>
+			</nav>
+		</header>
+		<section class="mt-10">
+			<h2 class="text-center bg-white p-3">こどもたちが楽しく学べる<br class="md:hidden">プログラミング教室</h2>
+		</section>
 	</main>
 </Layout>
 
