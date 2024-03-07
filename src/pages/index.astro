@@ -1,11 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import { Image } from 'astro:assets';
+import myImage from "../images/kodo-pro__logo.png";
 ---
 
 <Layout title="Welcome to Astro.">
 	<main class="container mx-auto">
-		<h1 class="text-center text-green-700 font-bold">コドモプログラミング</h1>
+		<h1 class="md:text-4xl text-center text-green-700 font-bold">
+			<Image src={myImage} alt="コドモプログラミング"/>
+		</h1>
 	</main>
 </Layout>
 
