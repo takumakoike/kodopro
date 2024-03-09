@@ -1,8 +1,8 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import jaLocale from '@fullcalendar/core/locales/ja'; // 追加
+import jaLocale from '@fullcalendar/core/locales/ja';
 
-// import './App.css';
+import '../assets/calendarstyle.css';
 
 const ReactCalendar = () => {
     return (

@@ -11,8 +11,8 @@ const response = await getBlogs({ fields: ["id", "title"] });
 	<Headers/>
 	<main class="container mx-auto">
 		<section class="mt-10 p-2 bg-white">
-			<h2 class="text-center p-3 text-2xl font-bold">こどもたちが楽しく学べる<br class="md:hidden">プログラミング教室</h2>
-			<ul class="flex flex-col gap-2">
+			<h2 class="text-center p-3 text-lg md:text-2xl font-bold">こどもたちが楽しく学べる<br class="md:hidden">プログラミング教室</h2>
+			<ul class="flex flex-col gap-2 text-sm md:text-base ">
 				<li>パソコンがあればOK</li>
 				<li>ひらがな・カタカナが読めればOK</li>
 				<li>ローマ字がわからなくてもOK</li>
@@ -22,9 +22,9 @@ const response = await getBlogs({ fields: ["id", "title"] });
 
 			<div>
 				<h2 class="text-xl font-bold mt-10 text-center">どんなことをやるの？</h2>
-				<p class="mt-6">こどもプログラミングではまずパソコンを立ち上げてサインインするところから動作を確認していきます。</p>
-				<p class="mt-6">パソコンの準備ができたらタイピングの練習をします。簡単な文章から自分のペースで入力していき、徐々にスピードをあげていきます。</p>
-				<p class="mt-6">タイピングが終わればプログラミング教材『Scratch』を使用して学んでいきます。</p>
+				<p class="mt-6 text-sm md:text-base">こどもプログラミングではまずパソコンを立ち上げてサインインするところから動作を確認していきます。</p>
+				<p class="mt-6 text-sm md:text-base">パソコンの準備ができたらタイピングの練習をします。簡単な文章から自分のペースで入力していき、徐々にスピードをあげていきます。</p>
+				<p class="mt-6 text-sm md:text-base">タイピングが終わればプログラミング教材『Scratch』を使用して学んでいきます。</p>
 				
 			</div>
 		</section>
@@ -33,7 +33,7 @@ const response = await getBlogs({ fields: ["id", "title"] });
 			<ul>
 				{response.contents.map((content: any) => (
 					<li class="">
-						<a href={content.id} class="underline text-blue-600 hover:text-gray-600">{content.title}</a>
+						<a href={content.id} class="text-sm md:text-base underline text-blue-600 hover:text-gray-600">{content.title}</a>
 					</li>
 						))}
 			</ul>
