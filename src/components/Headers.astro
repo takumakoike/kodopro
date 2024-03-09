@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import myImage from "../images/kodo-pro__logo.png";
+---
+<header class="container mx-auto">
+    <h1 class="md:text-4xl text-center text-green-700 font-bold">
+        <a href="/">
+            <Image src={myImage} alt="コドモプログラミング"/>
+        </a>
+    </h1>
+    <nav class="mt-5">
+        <ul class="flex gap-3 justify-center font-bold">
+            <li class="flex"><a href="schedule" class="p-2 px-6 rounded-3xl bg-white border border-gray-400 hover:bg-blue-400">開催日</a></li>
+            <li class="flex"><a href="archive" class="p-2 px-6 rounded-3xl bg-white border border-gray-400 hover:bg-blue-400">活動記録</a></li>
+            <li class="flex "><a href="payment" class="p-2 px-6 rounded-3xl bg-white border border-gray-400 hover:bg-blue-400">決済</a></li>
+            <!-- <li class="flex bg-white"><a href="" class="p-2 px-6 rounded-3xl bg-white hover:text-blue-400"></a></li> -->
+        </ul>
+    </nav>
+</header>
+
+<style>
+    header{
+        margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		font-size: 20px;
+		line-height: 1.6;
+    }
+</style>

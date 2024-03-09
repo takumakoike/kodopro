@@ -1,37 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import myImage from "../images/kodo-pro__logo.png";
+import Headers from "../components/Headers.astro"
+import Footer from "../components/Footer.astro"
 //microCMS呼び出し
 import { getBlogs } from "../library/microcms";
 const response = await getBlogs({ fields: ["id", "title"] });
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="こどもプログラミング｜トップページ">
+	<Headers/>
 	<main class="container mx-auto">
-		<header class="container mx-auto">
-			<h1 class="md:text-4xl text-center text-green-700 font-bold">
-				<Image src={myImage} alt="コドモプログラミング"/>
-			</h1>
-			<nav class="mt-5">
-				<ul class="flex gap-3 justify-center font-bold">
-					<li class="flex"><a href="" class="p-2 px-6 rounded-3xl bg-white border border-gray-400 hover:bg-blue-400">活動記録</a></li>
-					<li class="flex "><a href="" class="p-2 px-6 rounded-3xl bg-white border border-gray-400 hover:bg-blue-400">決済</a></li>
-					<!-- <li class="flex bg-white"><a href="" class="p-2 px-6 rounded-3xl bg-white hover:text-blue-400"></a></li> -->
-				</ul>
-			</nav>
-		</header>
-		<section class="mt-10">
-			<h2 class="text-center bg-white p-3">こどもたちが楽しく学べる<br class="md:hidden">プログラミング教室</h2>
+		<section class="mt-10 p-2 bg-white">
+			<h2 class="text-center p-3 text-2xl font-bold">こどもたちが楽しく学べる<br class="md:hidden">プログラミング教室</h2>
+			<ul class="flex flex-col gap-2">
+				<li>パソコンがあればOK</li>
+				<li>ひらがな・カタカナが読めればOK</li>
+				<li>ローマ字がわからなくてもOK</li>
+				<li>タイピング初めてでもOK</li>
+			</ul>
+			<p class="mt-6">楽しみながら学べます♪</p>
+
+			<div>
+				<h2 class="text-xl font-bold mt-10 text-center">どんなことをやるの？</h2>
+				<p class="mt-6">こどもプログラミングではまずパソコンを立ち上げてサインインするところから動作を確認していきます。</p>
+				<p class="mt-6">パソコンの準備ができたらタイピングの練習をします。簡単な文章から自分のペースで入力していき、徐々にスピードをあげていきます。</p>
+				<p class="mt-6">タイピングが終わればプログラミング教材『Scratch』を使用して学んでいきます。</p>
+				
+			</div>
+		</section>
+		<section class="mt-10 bg-white p-4">
+				<h2 class="text-xl font-bold mt-10 text-center">開催記録</h2>
 			<ul>
 				{response.contents.map((content: any) => (
-					<li>
-						<a href={content.id}>{content.title}</a>
+					<li class="">
+						<a href={content.id} class="underline text-blue-600 hover:text-gray-600">{content.title}</a>
 					</li>
-				))}
+						))}
 			</ul>
 		</section>
 	</main>
+	<Footer />
 </Layout>
 
 <style>
