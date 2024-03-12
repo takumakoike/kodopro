@@ -22,6 +22,9 @@ const ReactCalendar = () => {
                     {title:'開催日', start: '2024-03-06'},
                     {title:'開催日', start: '2024-03-12'},
                     {title:'開催日', start: '2024-03-19'},
+                    {title:'開催日', start: '2024-04-10'},
+                    {title:'開催日', start: '2024-04-17'},
+                    {title:'開催日', start: '2024-04-24'},
                 ]}
             />
 
