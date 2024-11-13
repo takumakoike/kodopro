@@ -2,17 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Headers from "../components/Headers.astro"
 import Footer from "../components/Footer.astro"
-//microCMS呼び出し
-import { getBlogs } from "../library/microcms";
-const response = await getBlogs({ fields: ["id", "title"] });
 ---
 
 <Layout title="こどもプログラミング｜トップページ">
 	<Headers/>
-	<main class="container mx-auto">
-		<section class="mt-10 p-2 bg-white">
-			<h2 class="text-center p-3 text-lg md:text-2xl font-bold">こどもたちが楽しく学べる<br class="md:hidden">プログラミング教室</h2>
-			<ul class="flex flex-col gap-2 text-sm md:text-base ">
+	<main class="container mx-auto p-0 md:p-4">
+		<section class="mt-10 p-2 md:p-8 bg-white">
+			<h2 class="text-center p-2 text-lg md:text-2xl font-bold">こどもたちが楽しく学べる<br class="md:hidden">プログラミング教室</h2>
+			<ul class="flex flex-col gap-2">
 				<li>パソコンがあればOK</li>
 				<li>ひらがな・カタカナが読めればOK</li>
 				<li>ローマ字がわからなくてもOK</li>
@@ -21,34 +18,71 @@ const response = await getBlogs({ fields: ["id", "title"] });
 			<p class="mt-6">楽しみながら学べます♪</p>
 
 			<div>
-				<h2 class="text-xl font-bold mt-10 text-center">どんなことをやるの？</h2>
-				<p class="mt-6 text-sm md:text-base">こどもプログラミングではまずパソコンを立ち上げてサインインするところから動作を確認していきます。</p>
-				<p class="mt-6 text-sm md:text-base">パソコンの準備ができたらタイピングの練習をします。簡単な文章から自分のペースで入力していき、徐々にスピードをあげていきます。</p>
-				<p class="mt-6 text-sm md:text-base">タイピングが終わればプログラミング教材『Scratch』を使用して学んでいきます。</p>
-				
+				<h2 class="md:text-2xl text-lg p-2 font-bold mt-10 text-center">どんなことをやるの？</h2>
+				<p class="mt-6">こどもプログラミングではまずパソコンを立ち上げてサインインするところから動作を確認していきます。サインイン？アカウント？といった感じで言葉がわからなくても、操作方法がわからなくても大丈夫♪ゆっくり丁寧に説明していきます♪</p>
+				<p class="mt-6">パソコンの準備ができたらタイピングの練習をします。簡単な文章から自分のペースで入力していき、徐々にスピードをあげていきます。</p>
+				<p class="mt-6">タイピングが終わればプログラミング教材『Scratch』（スクラッチ）を使用して学んでいきます。<br>スクラッチではまずスプライトと呼ばれるキャラクターをうごかすことからはじめ、簡単なゲームや自作のゲームを徐々に作っていきます。</p>
+				<p class="mt-6">スクラッチはビジュアルプログラミングといい、指令や状態が書かれたブロック型のコードを組み合わせていくことで実行することが可能です。ただキャラクターを動かすだけではなく、音を入れたりパソコンについているカメラを利用して動きを感知させたりといったことも可能です。</p>
+				<p class="mt-6">スクラッチでのプログラミングに慣れてきたり、英語の知識がついてくると本格的なプログラミング言語に取り組み、オリジナルアプリケーションの制作をしていくことも検討中です。</p>
+
 			</div>
-		</section>
-		<section class="mt-10 bg-white p-4">
-				<h2 class="text-xl font-bold mt-10 text-center">開催記録</h2>
-			<ul>
-				{response.contents.map((content: any) => (
-					<li class="">
-						<a href={content.id} class="text-sm md:text-base underline text-blue-600 hover:text-gray-600">{content.title}</a>
-					</li>
-						))}
-			</ul>
+
+			<div>
+				<h2 class="md:text-2xl text-lg p-2 font-bold mt-10 text-center">どこでやるの？</h2>
+				<p class="mt-6 text-center">こどもプログラミングでは1回60分のレッスンを定期的に開催しています。</p>
+				<p class="mt-6 text-center font-bold">対面でのレッスンは札幌市南区で開催中！</p>
+				<p class="mt-6 text-center font-bold">オンラインでのレッスン希望も随時受付中！</p>
+				<a class="block text-xl font-bold text-center mt-8 text-blue-500 underline" href="https://lin.ee/sZuCVbl" target="_blank">詳細については公式LINEよりお気軽にお問い合わせください</a>
+			</div>
+
+			<div>
+				<h2 class="md:text-2xl text-lg p-2 font-bold mt-10 text-center">費用はどのくらいかかるの？</h2>
+				<div class="priceWrapper flex flex-col justify-center md:flex-row">
+					<div class="flex flex-col items-center p-4 rounded-lg bg-gray-300 border border-gray-600">
+						<h3 class="bg-amber-100 py-1 px-3 rounded-lg">単発利用の場合</h3>
+						<p class="mt-8">2500円/回</p>
+					</div>
+					<div class="flex  flex-col items-center bg-amber-100 p-4 border border-gray-500 rounded-lg">
+						<h3 class="bg-amber-400 font-bold  py-1 px-5 rounded-lg text-center">定期利用の場合</h3>
+						<p class="text-4xl mt-8 font-bold">6000円</p>
+						<span class="text-xl text-red-600">月3回のレッスン</span>
+						<span class="text-xl text-red-600">単発利用よりも1000円オトク！</span>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<h2 class="md:text-2xl text-lg p-2 font-bold mt-10 text-center">こどもプログラミングで<br class="md:hidden">目指すこと</h2>
+				<p class="p-4 md:px-20">こどもプログラミングの中で目指すことは<span class="font-bold text-red-400">「プログラミングを学ぶことで世界が広がる」</span>と実感してもらうこと、そしてプログラミングを通じて他の分野についても<span class="font-bold text-red-400">「学ぶことは楽しいこと」</span>と知ってもらうことです。</p>
+				<p class="p-4 md:px-20">2020年度から教育現場で始まったプログラミング教育。始まったと言っても「プログラミング」という科目が新設されるわけではなく、既存の教科に付加する形でプログラミング的思考について学ぶ機会を設けているところがほとんどです。</p>
+				<p class="p-4 md:px-20">インターネットを通じていろいろなことができるようになりIT化が進んでいく世の中ですが、その中でプログラミングが担う役割は非常に大きいです。細かくみていけばあらゆるものがプログラミングによって動いていることに気づけるでしょう。</p>
+				<p class="p-4 md:px-20">高度なプログラムを書いていくためには英語や数学の知識も必要になってきますが、そんなハードルは上げずにまずはビジュアルプログラミングという領域からプログラミングに触れて、自分の思い通りにコンピュータを動かせる楽しさを知っていってほしいと思っています。</p>
+				<p class="p-4 md:px-20">これからの未来を担うこどもたちが、プログラミングを通じて自分自身の可能性を広げられるようになれば主宰者としてとっても喜ばしいです。</p>
+			</div>
+			<a class="block text-xl font-bold text-center mt-8 text-blue-500 underline" href="https://lin.ee/sZuCVbl" target="_blank">詳細については公式LINEよりお気軽にお問い合わせください</a>
 		</section>
 	</main>
 	<Footer />
 </Layout>
 
-<style>
+<style is:global>
 	main {
 		margin: auto;
-		padding: 1rem;
 		width: 800px;
 		max-width: calc(100% - 2rem);
 		font-size: 20px;
 		line-height: 1.6;
+	}
+	main h2{
+		background-color: #ED9D02;
+		width: 65vw;
+		margin: 0 auto 1rem;
+		border-radius: 20px;
+		color: #fefefe;
+	}
+
+	.priceWrapper{
+		margin: 0 auto;
+		gap: 5rem;
 	}
 </style>
